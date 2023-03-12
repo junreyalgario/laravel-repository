@@ -1,0 +1,19 @@
+{
+    "name": "algario/laravel-repository",
+    "description": "Repository pattern implementation in Laravel",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Algario\\LaravelRepository\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Junrey Algario",
+            "email": "junreyalgario@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^8.0"
+    }
+}
