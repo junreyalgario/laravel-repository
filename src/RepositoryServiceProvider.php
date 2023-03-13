@@ -26,8 +26,8 @@ class RepositoryServiceProvider extends ServiceProvider
         // Register the commands to create repository interface and facades
         $this->commands([
             Console\MakeRepositoryConcreteCommand::class,
-            Console\MakeServiceInterfaceCommand::class,
-            Console\MakeServiceFacadeCommand::class
+            Console\MakeRepositoryInterfaceCommand::class,
+            Console\MakeRepositoryFacadeCommand::class
         ]);
     }
 }

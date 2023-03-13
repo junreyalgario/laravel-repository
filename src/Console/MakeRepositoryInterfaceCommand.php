@@ -5,35 +5,35 @@ namespace Algario\Console;
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
 
-class MakeServiceFacadeCommand extends GeneratorCommand
+class MakeRepositoryInterfaceCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'make:repository-facades';
+    protected $name = 'make:repository-interface';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new repository facades';
+    protected $description = 'Create a new repository interface';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'RepositoryFacades';
+    protected $type = 'RepositoryInterface';
 
     /**
      * @inheritDoc
      */
     protected function getStub()
     {
-        return __DIR__.'/../stubs/repository.facades.stub';
+        return __DIR__.'/../stubs/repository.interface.stub';
     }
 
     /**
@@ -46,12 +46,10 @@ class MakeServiceFacadeCommand extends GeneratorCommand
     protected function replaceClass($stub, $name)
     {
         if(!$this->argument('name')){
-            throw new InvalidArgumentException("Missing required argument repository facades name");
+            throw new InvalidArgumentException("Missing required argument repository interface name");
         }
         $stub = parent::replaceClass($stub, $name);
-        $concreteClassName = str_replace('Facades', '', $this->argument('name'));
-        $stub = str_replace('DummyRepositoryInterface', $concreteClassName.'Interface', $stub);
-        return str_replace('DummyRepositoryFacades', $this->argument('name'), $stub);
+        return str_replace('DummyRepositoryInterface', $this->argument('name'), $stub);
     }
 
 
@@ -63,7 +61,7 @@ class MakeServiceFacadeCommand extends GeneratorCommand
     protected function getArguments()
     {
         return [
-            ['name', InputArgument::REQUIRED, 'The name of the Rrepository to which the facades will be generated'],
+            ['name', InputArgument::REQUIRED, 'The name of the repository to which the interface will be generated'],
         ];
     }
 
@@ -75,6 +73,6 @@ class MakeServiceFacadeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repository\Facades';
+        return $rootNamespace.'\Repository\Contracts';
     }
 }
