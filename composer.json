@@ -10,15 +10,22 @@
     ],
     "autoload": {
         "psr-4": {
-            "Repository\\": "src/"
+            "Algario\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Repository\\Tests\\": "tests/"
+            "Algario\\Tests\\": "tests/"
         }
     },
     "require-dev": {
         "orchestra/testbench": "^8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Algario\\RepositoryServiceProvider"
+            ]
+        }
     }
 }

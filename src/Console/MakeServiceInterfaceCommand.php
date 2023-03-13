@@ -1,40 +1,39 @@
 <?php
 
-namespace Repository\Commands;
+namespace Repository\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
-use Artisan;
 
-class MakeServiceConcrete extends GeneratorCommand
+class MakeServiceInterfaceCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'make:service';
+    protected $name = 'make:repository-interface';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a new service';
+    protected $description = 'Create a new repository interface';
 
     /**
      * The type of class being generated.
      *
      * @var string
      */
-    protected $type = 'Services';
+    protected $type = 'RepositoryInterface';
 
     /**
      * @inheritDoc
      */
     protected function getStub()
     {
-        return 'stubs/service.stub';
+        return 'stubs/repository.interface.stub';
     }
 
     /**
@@ -46,15 +45,11 @@ class MakeServiceConcrete extends GeneratorCommand
      */
     protected function replaceClass($stub, $name)
     {
-        // Run commands to generate service interface and facade class
-        Artisan::call('make:service-interface '.$this->argument('name').'Interface');
-        Artisan::call('make:service-facades '.$this->argument('name').'Facades');
-
         if(!$this->argument('name')){
-            throw new InvalidArgumentException("Missing required argument service name");
+            throw new InvalidArgumentException("Missing required argument repository interface name");
         }
         $stub = parent::replaceClass($stub, $name);
-        return str_replace('DummyService', $this->argument('name'), $stub);
+        return str_replace('DummyRepositoryInterface', $this->argument('name'), $stub);
     }
 
 
@@ -66,7 +61,7 @@ class MakeServiceConcrete extends GeneratorCommand
     protected function getArguments()
     {
         return [
-            ['name', InputArgument::REQUIRED, 'The name of the service to which the service concrete class will be generated'],
+            ['name', InputArgument::REQUIRED, 'The name of the repository to which the interface will be generated'],
         ];
     }
 
@@ -78,6 +73,6 @@ class MakeServiceConcrete extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Services';
+        return $rootNamespace.'\Repository\Contracts';
     }
 }

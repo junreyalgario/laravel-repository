@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Repository;
 
-use Repository\Core\BaseService;
-use App\Services\Contracts\DummyServiceInterface;
+use Algario\Repository;
+use App\Repository\Contracts\DummyServiceInterface;
 
-class DummyService extends BaseService implements DummyServiceInterface
+class DummyService extends Repository implements DummyServiceInterface
 {
 	/**
 	 * Paginate resource

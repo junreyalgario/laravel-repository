@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Repository\Facades;
+
+use Illuminate\Support\Facades\Facade;
+use App\Repository\Contracts\DummyRepositoryInterface;
+
+class DummyRepositoryFacades extends Facade {
+   protected static function getFacadeAccessor() { return DummyRepositoryInterface::class; }
+}

@@ -1,8 +1,8 @@
 <?php
 
-namespace Repository\Core;
+namespace Algario;
 
-abstract class BaseService implements BaseInterface
+abstract class Repository implements RepositoryInterface
 {
 	/**
 	 * Paginate resource

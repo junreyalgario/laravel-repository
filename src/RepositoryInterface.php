@@ -1,8 +1,8 @@
 <?php
 
-namespace Repository\Core;
+namespace Algario;
 
-interface BaseInterface
+interface RepositoryInterface
 {
 	/**
 	 * Paginate resource
@@ -17,12 +17,12 @@ interface BaseInterface
 	/**
 	 * Create new resource
 	 */
-	public function store($payload);
+	public function store($data);
 
 	/**
 	 * Update resource
 	 */
-	public function update($payload);
+	public function update($data);
 	
 	/**
 	 * Show resource
