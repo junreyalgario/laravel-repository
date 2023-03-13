@@ -25,9 +25,9 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         // Register the commands to create repository interface and facades
         $this->commands([
-            Algario\Console\MakeRepositoryConcreteCommand::class,
-            Algario\Console\MakeServiceInterfaceCommand::class,
-            Algario\Console\MakeServiceFacadeCommand::class
+            Console\MakeRepositoryConcreteCommand::class,
+            Console\MakeServiceInterfaceCommand::class,
+            Console\MakeServiceFacadeCommand::class
         ]);
     }
 }
