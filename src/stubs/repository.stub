@@ -3,9 +3,9 @@
 namespace App\Repository;
 
 use Algario\Repository;
-use App\Repository\Contracts\DummyServiceInterface;
+use App\Repository\Contracts\DummyRepositoryInterface;
 
-class DummyService extends Repository implements DummyServiceInterface
+class DummyRepository extends Repository implements DummyRepositoryInterface
 {
 	/**
 	 * Paginate resource
