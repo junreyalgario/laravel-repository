@@ -33,7 +33,7 @@ class MakeServiceInterfaceCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return 'stubs/repository.interface.stub';
+        return __DIR__.'/../stubs/repository.interface.stub';
     }
 
     /**

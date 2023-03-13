@@ -33,7 +33,7 @@ class MakeServiceFacadeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return 'stubs/repository.facades.stub';
+        return __DIR__.'/../stubs/repository.facades.stub';
     }
 
     /**
